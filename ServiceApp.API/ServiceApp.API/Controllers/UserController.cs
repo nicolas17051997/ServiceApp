@@ -23,12 +23,15 @@ namespace ServiceApp.API.Controllers
     public class UserController : ControllerBase
     {
         private IUserService _userService;
+        private IUserRegisterService _register;
         private readonly IConfiguration _configuration;
 
-        public UserController(IUserService userServisce, IConfiguration configuration)
+        public UserController(IUserService userServisce, IConfiguration configuration,
+            IUserRegisterService registerService )
         {
             _userService = userServisce;
             _configuration = configuration;
+            _register = registerService;
         }
 
         [AllowAnonymous]
@@ -85,22 +88,14 @@ namespace ServiceApp.API.Controllers
         }
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register([FromBody]UserDto userDto)
+        public IActionResult Register([FromBody]RegisterUserVeiwModel userDto)
         {
             // map dto to entity
-            var user = _mapper.Map<User>(userDto);
+            var user = _register.CreateUser(userDto);
 
-            try
-            {
-                // save 
-                _userService.Create(user, userDto.Password);
-                return Ok();
-            }
-            catch (AppException ex)
-            {
-                // return error message if there was an exception
-                return BadRequest(new { message = ex.Message });
-            }
+            if (user == null)
+                return BadRequest(new { message = "You must enter all fields to complete the registration" });
+            return Ok();
         }
     }
     public class UserTokenModel

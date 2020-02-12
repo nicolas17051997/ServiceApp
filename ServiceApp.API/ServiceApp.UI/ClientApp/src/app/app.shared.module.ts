@@ -25,8 +25,6 @@ import { ConfigurationService } from '../code/services';
 import { BaseHttpInterceptor, BasicAuthInterceptor, ErrorInterceptor } from '../code/api/interceptor';
 import { LoginComponent } from './content/login';
 import { AuthorizeTokenComponent } from './content/login/authorize-token.component';
-import { DirectivesModule } from '../code/directives';
-import { ErrorDialogComponent } from './content/independent-component/error-dialog/error-dialog.component';
 
 export function loadConfig(configService: ConfigurationService) {
   return () => configService.loadConfig();
@@ -37,8 +35,7 @@ export function loadConfig(configService: ConfigurationService) {
     AppComponent,
     ContentComponent,
     LoginComponent,
-    AuthorizeTokenComponent,
-    ErrorDialogComponent,
+    AuthorizeTokenComponent,,
   ],
   imports: [
     BrowserModule,
@@ -55,10 +52,9 @@ export function loadConfig(configService: ConfigurationService) {
     MatRippleModule,
     FormsModule,
     MatDialogModule,
-    MatModulesModule,
+
     ReactiveFormsModule,
     MatTooltipModule,
-    DirectivesModule
   ],
   providers: [
     ConfigurationService,
@@ -84,8 +80,7 @@ export function loadConfig(configService: ConfigurationService) {
       useClass: ErrorInterceptor,
       multi: true
     },
-    { provide: MatPaginatorIntl, useValue: getUaPaginatorIntl() },
-    { provide: MAT_DATE_LOCALE, useValue: 'uk-UA' },
+    
   ],
   bootstrap: [AppComponent],
 

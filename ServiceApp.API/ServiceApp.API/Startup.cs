@@ -75,7 +75,7 @@ namespace ServiceApp.API
             });
             services.AddTransient(typeof(IRepository<,>),typeof(BaseRepository<,>));
             services.AddTransient<IUserService, UserService>();
-            services.AddScoped<IUserService, UserService>();
+            services.AddTransient<IUserRegisterService, RegisterUserService>();
         }
 
         

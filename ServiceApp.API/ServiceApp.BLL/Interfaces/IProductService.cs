@@ -9,5 +9,6 @@ namespace ServiceApp.BLL.Interfaces
    public interface IProductService
     {
         Task<CreateProductViewModel> CreateNewProduct(CreateProductViewModel productmodel);
+
     }
 }

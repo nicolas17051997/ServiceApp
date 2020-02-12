@@ -15,13 +15,38 @@ namespace ServiceApp.BLL.Services
         {
 
         }
-        public async Task<RegisterUserVeiwModel> CreateUser(RegisterUserVeiwModel model)
+        public async Task<Users> CreateUser(RegisterUserVeiwModel model)
         {
+            if (string.IsNullOrWhiteSpace(model.UserPassword)) {
+                throw new ApplicationException("Password is required");
+            }
+            if (string.IsNullOrWhiteSpace(model.UserEmail))
+            {
+                throw new ApplicationException("Email is required");
+            }
+            if(string.IsNullOrWhiteSpace(model.UserName))
+            {
+                throw new ApplicationException("Name is required");
+            }
+            if (string.IsNullOrWhiteSpace(model.UserSurname))
+            {
+                throw new ApplicationException("Surname is required");
+            }
             using (_repository.BeginTransaction())
             {
                 try
                 {
-                    var user = GetAll(x => x.Name)
+                    var user = new Users
+                    {
+                        Name = model.UserName,
+                        SurName = model.UserSurname,
+                        Password = model.UserPassword,
+                        UserEmail = model.UserEmail,
+                        UserRole = 2,
+                    };
+                    var data = await Create( user);
+
+                    return user;
                 }
                 catch
                 {
@@ -29,6 +54,7 @@ namespace ServiceApp.BLL.Services
                     return null;
                 }
             }
+            
         }
     }
 }

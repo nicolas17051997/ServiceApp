@@ -1,8 +1,9 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '@/models';
-import { UserService, AuthenticationService } from '@/services';
+import { User } from 'code/models/user';
+import { UserService, AuthenticationService } from 'code/services';
+import { Product } from 'code/models/product';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {

@@ -6,6 +6,7 @@ using ServiceApp.DAL.Repository;
 using ServiceApp.BLL.Interfaces;
 using System.Threading.Tasks;
 using ServiceApp.BLL.DTO;
+using System.Linq;
 
 namespace ServiceApp.BLL.Services
 {
@@ -16,17 +17,35 @@ namespace ServiceApp.BLL.Services
 
         }
 
-        public Task<CreateProductViewModel> CreateNewProduct(CreateProductViewModel productmodel)
+        public async Task<CreateProductViewModel> CreateNewProduct(CreateProductViewModel productmodel)
         {
             using (_repository.BeginTransaction())
             {
                 try
                 {
-                    var product = GetAll(x => x.Name.ToLower().Equals(productmodel.Name) && x.Price )
+                    var product = GetAll(x => x.Name.ToLower().Equals(productmodel.Name) && x.Status == true).FirstOrDefault();
+                    if(product == null)
+                    {
+                        var data = new Products
+                        {
+                            Name = productmodel.Name,
+                            Price = productmodel.Price,
+                            Status = productmodel.Status
+                        };
+                        var result = await Create(data);
+                        productmodel.Id = result.Id;
+                        _repository.CommitTransaction();
+                        return productmodel;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 catch
                 {
-
+                    _repository.RollbackTransaction();
+                    return null;
                 }
             }
         }

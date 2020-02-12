@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using ServiceApp.BLL.DTO;
+using ServiceApp.DAL.Models;
 
 namespace ServiceApp.BLL.Interfaces
 {
-    interface IUserRegisterService
+   public interface IUserRegisterService
     {
-        Task<RegisterUserVeiwModel> CreateUser(RegisterUserVeiwModel model);
+        Task<Users> CreateUser(RegisterUserVeiwModel model);
     }
 }

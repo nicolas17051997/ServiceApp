@@ -1,7 +1,7 @@
-ort { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { User } from 'code/models';
+import { User } from '../models/user';
 import { BaseApiService } from '.';
 import { Observable } from 'rxjs';
 
