@@ -7,3 +7,13 @@ G:\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.dll
 G:\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.pdb
 G:\ServiceApp.API\ServiceApp.DAL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.runtimeconfig.json
 G:\ServiceApp.API\ServiceApp.DAL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.runtimeconfig.dev.json
+P:\null\ServiceApp.API\ServiceApp.DAL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.deps.json
+P:\null\ServiceApp.API\ServiceApp.DAL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.runtimeconfig.json
+P:\null\ServiceApp.API\ServiceApp.DAL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.runtimeconfig.dev.json
+P:\null\ServiceApp.API\ServiceApp.DAL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.dll
+P:\null\ServiceApp.API\ServiceApp.DAL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.pdb
+P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.csprojAssemblyReference.cache
+P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.AssemblyInfoInputs.cache
+P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.AssemblyInfo.cs
+P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.dll
+P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.pdb

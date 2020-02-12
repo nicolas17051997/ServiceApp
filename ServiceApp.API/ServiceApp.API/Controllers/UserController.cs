@@ -83,6 +83,25 @@ namespace ServiceApp.API.Controllers
 
             return tokenHandler.WriteToken(securityToken);
         }
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public IActionResult Register([FromBody]UserDto userDto)
+        {
+            // map dto to entity
+            var user = _mapper.Map<User>(userDto);
+
+            try
+            {
+                // save 
+                _userService.Create(user, userDto.Password);
+                return Ok();
+            }
+            catch (AppException ex)
+            {
+                // return error message if there was an exception
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
     public class UserTokenModel
     {

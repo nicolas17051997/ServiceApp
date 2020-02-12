@@ -9,3 +9,14 @@ G:\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.Assembly
 G:\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.csproj.CopyComplete
 G:\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.dll
 G:\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.pdb
+P:\null\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.BLL.deps.json
+P:\null\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.BLL.dll
+P:\null\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.BLL.pdb
+P:\null\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.dll
+P:\null\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.pdb
+P:\null\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.csprojAssemblyReference.cache
+P:\null\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.AssemblyInfoInputs.cache
+P:\null\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.AssemblyInfo.cs
+P:\null\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.csproj.CopyComplete
+P:\null\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.dll
+P:\null\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.pdb

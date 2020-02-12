@@ -20,5 +20,6 @@ namespace ServiceApp.DAL.EFContext
         {
 
         }
+
     }
 }
