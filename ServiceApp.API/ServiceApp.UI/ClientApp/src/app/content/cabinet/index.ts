@@ -1,1 +1,0 @@
-expotr * from './cabinet.componemt';

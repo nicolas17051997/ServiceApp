@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceApp.API", "ServiceApp.API\ServiceApp.API.csproj", "{ED525355-E43C-4A87-9A49-1BA0C5BFACFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceApp.API", "ServiceApp.API\ServiceApp.API.csproj", "{ED525355-E43C-4A87-9A49-1BA0C5BFACFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceApp.DAL", "ServiceApp.DAL\ServiceApp.DAL.csproj", "{9B8C7078-71D2-4283-9A0E-F2ACB55B8312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceApp.DAL", "ServiceApp.DAL\ServiceApp.DAL.csproj", "{9B8C7078-71D2-4283-9A0E-F2ACB55B8312}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceApp.BLL", "ServiceApp.BLL\ServiceApp.BLL.csproj", "{5AB72EA6-652A-4D02-8A26-B779AD3070AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceApp.BLL", "ServiceApp.BLL\ServiceApp.BLL.csproj", "{5AB72EA6-652A-4D02-8A26-B779AD3070AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceApp.UI", "ServiceApp.UI\ServiceApp.UI.csproj", "{C8133832-E6B4-42F8-B924-9BD948A96126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceApp.UI", "ServiceApp.UI\ServiceApp.UI.csproj", "{D8605C40-6D5D-4707-93D0-9FF66D8C853C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{5AB72EA6-652A-4D02-8A26-B779AD3070AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB72EA6-652A-4D02-8A26-B779AD3070AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AB72EA6-652A-4D02-8A26-B779AD3070AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8133832-E6B4-42F8-B924-9BD948A96126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8133832-E6B4-42F8-B924-9BD948A96126}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8133832-E6B4-42F8-B924-9BD948A96126}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8133832-E6B4-42F8-B924-9BD948A96126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8605C40-6D5D-4707-93D0-9FF66D8C853C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8605C40-6D5D-4707-93D0-9FF66D8C853C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8605C40-6D5D-4707-93D0-9FF66D8C853C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8605C40-6D5D-4707-93D0-9FF66D8C853C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

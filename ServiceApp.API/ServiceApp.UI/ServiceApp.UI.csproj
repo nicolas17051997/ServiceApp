@@ -2,97 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
-    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
-    <IsPackable>false</IsPackable>
-    <SpaRoot>ClientApp\</SpaRoot>
-    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
-
-    <!-- Set this to true if you enable server-side prerendering -->
-    <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.TypeScript.Compiler" Version="3.1.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.7.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Content Remove="$(SpaRoot)**" />
-    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="ClientApp\src\app\app-routing.module.ts" />
-    <None Remove="ClientApp\src\app\app.shared.module.ts" />
-    <None Remove="ClientApp\src\app\content\cabinet\cabinet.component.ts" />
-    <None Remove="ClientApp\src\app\content\cabinet\index.ts" />
-    <None Remove="ClientApp\src\app\content\content.component.ts" />
-    <None Remove="ClientApp\src\app\content\home\index.ts" />
-    <None Remove="ClientApp\src\app\content\login\authorize-token.component.ts" />
-    <None Remove="ClientApp\src\code\api\base-api.service.ts" />
-    <None Remove="ClientApp\src\code\api\index.ts" />
-    <None Remove="ClientApp\src\code\api\map-api.service.ts" />
-    <None Remove="ClientApp\src\code\api\register-api.service.ts" />
-    <None Remove="ClientApp\src\code\api\user-api.service.ts" />
-    <None Remove="ClientApp\src\code\models\common\Const.ts" />
-    <None Remove="ClientApp\src\code\models\common\index.ts" />
-    <None Remove="ClientApp\src\code\models\product\index.ts" />
-    <None Remove="ClientApp\src\code\services\configuration.service.ts" />
-    <None Remove="ClientApp\src\code\services\index.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\app-routing.module.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\app.shared.module.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\content\cabinet\cabinet.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\content\cabinet\index.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\content\content.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\content\home\index.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\content\login\authorize-token.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\api\base-api.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\api\index.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\api\map-api.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\api\register-api.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\api\user-api.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\models\common\Const.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\models\common\index.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\models\product\index.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\services\configuration.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\code\services\index.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\content\independent-component\" />
-  </ItemGroup>
-
-  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
-    <!-- Ensure Node.js is installed -->
-    <Exec Command="node --version" ContinueOnError="true">
-      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
-    </Exec>
-    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
-    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
-  </Target>
-
-  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
-    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
-
-    <!-- Include the newly-built files in the publish output -->
-    <ItemGroup>
-      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
-      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
-      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
-        <RelativePath>%(DistFiles.Identity)</RelativePath>
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </ResolvedFileToPublish>
-    </ItemGroup>
-  </Target>
 
 </Project>

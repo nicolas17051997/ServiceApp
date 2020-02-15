@@ -1,65 +1,23 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-
-import { ContentComponent } from './content/content.component';
-import { AuthGuard } from '../code/guards';
-import { LoginComponent } from './content/login';
-import { AuthorizeTokenComponent } from './content/login/authorize-token.component';
-import {Cabinet} from './content/cabinet/cabinet.component';
-import { from } from 'rxjs';
-
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {HomeComponent} from './home';
+import {AdminCabinetComponent} from './admin-cabinet';
+import {AuthGuard} from './guards';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ContentComponent,
-    children: [
-      {
-        path: 'calc',
-        loadChildren: './content/fertilizer-calculator/fertilizer-calculator.module#FertilizerCalculatorModule',
-        data: {
-          title: 'Fertilizer-List',
-          secondTitle: '',
-          icon: 'file-text',
-          state: 'fertilizer-calculator'
-        },
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'home',
-        loadChildren: './content/home/home.module#HomeModule',
-        data: {
-          title: 'Home',
-          secondTitle: '',
-          icon: 'file-text',
-          state: 'home'
-        },
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'cabinet',
-        loadChildren: './content/cabinet/cabinet.module#CabinetModule',
-        data: {
-          title: 'Home',
-          secondTitle: '',
-          icon: 'file-text',
-          state: 'home'
-        },
-        canActivate: [AuthGuard]
-      }
-      
+  {path:'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: '', component: HomeComponent, canActivate:[AuthGuard]},
+  {path: 'admin-cabinet', component: AdminCabinetComponent},
 
-    ]
-  },
-  { path: 'login', component: LoginComponent },
-  { path: 'auth', component: AuthorizeTokenComponent }
-
+  {path: '**', redirectTo:''}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }

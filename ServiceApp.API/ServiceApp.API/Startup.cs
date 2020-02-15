@@ -26,9 +26,14 @@ namespace ServiceApp.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment configuration)
         {
-            Configuration = configuration;
+            this.Configuration = new ConfigurationBuilder()
+                .SetBasePath(configuration.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{configuration.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables()
+                .Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -73,7 +78,7 @@ namespace ServiceApp.API
                     ValidateAudience = false
                 };
             });
-            services.AddTransient(typeof(IRepository<,>),typeof(BaseRepository<,>));
+            services.AddScoped(typeof(IRepository<,>),typeof(BaseRepository<,>));
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserRegisterService, RegisterUserService>();
         }
@@ -81,11 +86,6 @@ namespace ServiceApp.API
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            //app.UseCors(x => x
-            //            .AllowAnyOrigin()
-            //            .AllowAnyMethod()
-            //            .AllowAnyHeader());
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -94,9 +94,14 @@ namespace ServiceApp.API
             {
                 app.UseHsts();
             }
+            app.UseHttpsRedirection();
+            app.UseCors("AllowAllOrigins");
 
+
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
+
         }
     }
 }

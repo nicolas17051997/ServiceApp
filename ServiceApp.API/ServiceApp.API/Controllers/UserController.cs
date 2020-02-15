@@ -14,11 +14,11 @@ using Microsoft.IdentityModel.Tokens;
 using ServiceApp.BLL.Services;
 using ServiceApp.BLL.Interfaces;
 using ServiceApp.BLL.DTO;
-using Microsoft.IdentityModel.Tokens;
 
 namespace ServiceApp.API.Controllers
 {
     [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {

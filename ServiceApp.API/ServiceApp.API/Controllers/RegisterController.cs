@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceApp.API.Controllers
 {
-
+    [Route("api/[controller]")]
+    [ApiController]
     public class RegisterController: ControllerBase
     {
     }
