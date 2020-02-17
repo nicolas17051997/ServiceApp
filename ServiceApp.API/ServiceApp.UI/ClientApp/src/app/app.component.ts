@@ -10,7 +10,7 @@ import {AuthenticationService} from './services/authentication.service';
 })
 export class AppComponent {
   //currentUser: User;
-  title = 'debug-test';
+  title = 'ClientApp';
   constructor(
     // private router: Router,
     // private authenticationService: AuthenticationService

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Injectable } from '@angular/core';
+@Injectable()
 @Component({
   selector: 'app-admin-cabinet',
   templateUrl: './admin-cabinet.component.html',

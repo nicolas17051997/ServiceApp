@@ -1,8 +1,8 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component,Injectable } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '../models';
-import { UserService, AuthenticationService } from '../services';
+import { User } from '../models/User';
+import { UserService} from '../services/user.service';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
@@ -16,3 +16,4 @@ export class HomeComponent {
         });
     }
 }
+

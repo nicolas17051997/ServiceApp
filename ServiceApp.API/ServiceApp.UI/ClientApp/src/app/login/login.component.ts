@@ -1,11 +1,12 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+﻿import { Component, OnInit, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 
-import { AuthenticationService, AlertService } from '../services';
+import { AuthenticationService } from '../services/authentication.service';
+import {  AlertService } from '../services/alert.service';
 //import {} from '../services';
-
+//@Injectable()
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;

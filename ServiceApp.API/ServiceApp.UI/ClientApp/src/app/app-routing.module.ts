@@ -1,26 +1,25 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {ViewproductsComponent} from './viewproducts/viewproducts.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+
 import {HomeComponent} from './home';
+import {ViewproductsComponent} from './viewproducts/viewproducts.component';
 import {AdminCabinetComponent} from './admin-cabinet';
+import {LoginComponent} from './login';
+import {RegisterComponent} from './register/register.component';
 import {AuthGuard} from './guards';
 
 
-const routes: Routes = [
-  
+const routes: Routes = [  
+  // {path: '', component: HomeComponent, canActivate:[AuthGuard]}, 
+  // {path: 'viewproducts', component: ViewproductsComponent, canActivate:[AuthGuard]},
+   
+  // {path: 'admin-cabinet', component: AdminCabinetComponent, canActivate: [AuthGuard]},
   {path:'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'viewproducts', component: ViewproductsComponent, canActivate:[AuthGuard]},
-  {path: '', component: HomeComponent, canActivate:[AuthGuard]},
-  
-  {path: 'admin-cabinet', component: AdminCabinetComponent, canActivate: [AuthGuard]},
-
+  // {path: 'register', component: RegisterComponent},
   {path: '**', redirectTo:''}
 ];
-
+@Injectable()
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
