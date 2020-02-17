@@ -9,17 +9,17 @@ import {AuthenticationService} from './services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentUser: User;
-  title = 'ClientApp';
+  //currentUser: User;
+  title = 'debug-test';
   constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService
+    // private router: Router,
+    // private authenticationService: AuthenticationService
 ) {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+   // this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 }
 
-logout() {
-    this.authenticationService.logout();
-    this.router.navigate(['/login']);
-}
+// logout() {
+//     this.authenticationService.logout();
+//     this.router.navigate(['/login']);
+// }
 }

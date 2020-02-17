@@ -16,6 +16,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
+        
         this.myAppUrl = environment.AppUrl;
         this.myApiUrl = 'api/user/authenticate';
     }
@@ -26,7 +27,7 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
 
-        // return this.http.post<any>(`${config.apiUrl}/users/authenticate`, { username, password })
+        
         return this.http.post<any>(this.myAppUrl + this.myApiUrl, { username, password })
             .pipe(map(user => {
                 
@@ -39,19 +40,19 @@ export class AuthenticationService {
                 return user;
             }));
     }
-    loginByToken(token: string) {
-        return this.http.get<any>(this.myAppUrl + this.myApiUrl, { headers: { token: token } })
-            .pipe(map(res => {
+    // loginByToken(token: string) {
+    //     return this.http.get<any>(this.myAppUrl + this.myApiUrl, { headers: { token: token } })
+    //         .pipe(map(res => {
 
-                if (res.user) {
-                    let user = res.user;
-                    user.authdata = res.token;
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
+    //             if (res.user) {
+    //                 let user = res.user;
+    //                 user.authdata = res.token;
+    //                 localStorage.setItem('currentUser', JSON.stringify(user));
+    //             }
 
-                return res.user;
-            }));
-    }
+    //             return res.user;
+    //         }));
+    // }
 
     logout() {
         

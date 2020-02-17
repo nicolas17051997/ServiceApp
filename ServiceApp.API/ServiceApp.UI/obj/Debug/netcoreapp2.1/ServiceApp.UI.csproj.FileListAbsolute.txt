@@ -20,4 +20,3 @@ P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.Razor
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ServiceApp.UI.pdb
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.dll
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.pdb
-P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.csprojAssemblyReference.cache

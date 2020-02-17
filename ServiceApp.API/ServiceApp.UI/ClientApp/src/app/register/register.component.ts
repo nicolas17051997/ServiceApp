@@ -15,16 +15,16 @@ export class RegisterComponent implements OnInit {
     error = '';
 
     constructor(
-        private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: AuthenticationService,
-        private register : RegistrationService,
-        private alertService: AlertService
+        public formBuilder: FormBuilder,
+        public route: ActivatedRoute,
+        public router: Router,
+        //public authenticationService: AuthenticationService,
+        public register : RegistrationService,
+        public alertService: AlertService
     ) { 
-        if (this.authenticationService.currentUserValue) { 
-            this.router.navigate(['/']);
-        }
+        // if (this.authenticationService.currentUserValue) { 
+        //     this.router.navigate(['/']);
+        // }
     }
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(
             data => {
                     this.alertService.success("Registration successful", true);
-                    this.router.navigate(['/login']);
+                    //this.router.navigate(['/login']);
             },
             error => {
                 this.alertService.error(error);

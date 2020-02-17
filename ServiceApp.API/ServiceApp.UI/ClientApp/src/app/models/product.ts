@@ -1,8 +1,10 @@
 ﻿//import { DecimalPipe } from "@angular/common";
 
 export class Product {
-    id: number;
+    id?: number;
     name: string;
     price: number;
-    amount: number
+    amount: number;
+    dt: Date;
+    status: boolean;
 }

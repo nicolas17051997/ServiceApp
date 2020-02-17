@@ -23,7 +23,7 @@ export class RegistrationService {
         // .pipe(
         //     catchError(this.errorHandler)
         // );
-        return this.http.post(this.myAppUrl + this.myApiUrl, (user));
+        return this.http.post(this.myAppUrl + this.myApiUrl, user);
     }
     errorHandler(error) {
         let errorMessage = '';
