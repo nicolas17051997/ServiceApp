@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
 using ServiceApp.UI.Utils;
+using ServiceApp.UI.ApiClient;
 
 namespace ServiceApp.UI
 {
@@ -19,7 +21,9 @@ namespace ServiceApp.UI
         {
             Configuration = configuration;
         }
+
         public IConfiguration Configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
             new EnvConfig(Configuration.GetSection("EnvConfig"));
@@ -28,9 +32,10 @@ namespace ServiceApp.UI
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddScoped<APIClient>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

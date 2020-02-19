@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 
 import {environment} from '../../environments/environment';
-import { User } from '../models';
+import { User } from '../models/User';
 
 
 @Injectable({ providedIn: 'root' })
@@ -10,8 +10,8 @@ export class UserService {
     myAppUrl: string;
     myApiUrl: string;
     constructor(private http: HttpClient) {
-        this.myAppUrl = environment.AppUrl;
-        this.myApiUrl = 'api/user';
+        this.myAppUrl = environment.myAppUrl;
+        this.myApiUrl = 'api/User';
         //super(http);
      }
 
@@ -31,10 +31,10 @@ export class UserService {
     }
 
     update(user: User) {
-        return this.http.put(`${this.myAppUrl + this.myApiUrl}/users/${user.id}`, user);
+        return this.http.put(`${this.myAppUrl + this.myApiUrl}/${user.id}`, user);
     }
 
     delete(id: number) {
-        return this.http.delete(`${this.myAppUrl + this.myApiUrl}/users/${id}`);
+        return this.http.delete(`${this.myAppUrl + this.myApiUrl}/${id}`);
     }
 }

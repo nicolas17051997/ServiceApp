@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {environment} from '../../environments/environment';
-import { AuthenticationService } from '../services';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 @Injectable()
@@ -11,7 +11,7 @@ export class JwtInterceptor implements HttpInterceptor {
     public myApiUrl: string;
     constructor(private authenticationService: AuthenticationService) {
 
-        this.myAppUrl = environment.AppUrl;
+        this.myAppUrl = environment.myAppUrl;
         this.myApiUrl = 'api/user/authenticate';
      }
 

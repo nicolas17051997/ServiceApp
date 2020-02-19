@@ -1,0 +1,86 @@
+<!-- <h1>View products</h1>
+
+<p *ngIf="!(products$ | async)"><em>Loading...</em></p>
+<p>
+  
+  <a [routerLink]="['/product-add-edit']" class="btn btn-primary float-right mb-3">Add new product</a>
+</p>
+
+<table class="table table-sm table-hover" *ngIf="(products$ | async)?.length>0">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Product Name</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of (products$ | async)">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name | uppercase }}</td>
+      <td>{{ product.dt | date: "dd.MM.y" }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.amount }}</td> 
+      <td>{{ product.status }}</td>    
+    </tr>
+  </tbody>
+</table> -->
+<div>
+  <br>
+    <div class="container">
+        <div class="container">
+          <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row"  fxLayoutAlign="space-around center" class="content">
+              <div class="blocks">
+                  <button button="submit" mat-raised-button color="primary">
+                      <mat-icon>add</mat-icon> Add new Product
+                  </button>
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Recent Products</h3>
+          </mat-card-title>
+          <mat-card-content>
+              <div class="example-container mat-elevation-z8">
+                  <mat-table #table [dataSource]="dataSource">
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Product name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                  </ng-container>
+                    <ng-container matColumnDef="price">
+                      <mat-header-cell *matHeaderCellDef> product price </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="amount">
+                      <mat-header-cell *matHeaderCellDef> Amount Product </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="status">
+                      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                      <!-- <mat-cell *matCellDef="let element">
+                        <a
+                            type="button">
+                          <mat-icon class="icon">delete</mat-icon>
+                        </a>
+                      </mat-cell> -->
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </mat-table>
+                </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import {environment} from '../../environments/environment';
-import { User } from '../models';
+import { User } from '../models/User';
 
 
 @Injectable({ providedIn: 'root' })
@@ -18,7 +18,7 @@ export class AuthenticationService {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
         
-        this.myAppUrl = environment.AppUrl;
+        this.myAppUrl = environment.myAppUrl;
         this.myApiUrl = 'api/user/authenticate';
     }
 
@@ -41,19 +41,19 @@ export class AuthenticationService {
                 return user;
             }));
     }
-    // loginByToken(token: string) {
-    //     return this.http.get<any>(this.myAppUrl + this.myApiUrl, { headers: { token: token } })
-    //         .pipe(map(res => {
+    loginByToken(token: string) {
+        return this.http.get<any>(this.myAppUrl + this.myApiUrl, { headers: { token: token } })
+            .pipe(map(res => {
 
-    //             if (res.user) {
-    //                 let user = res.user;
-    //                 user.authdata = res.token;
-    //                 localStorage.setItem('currentUser', JSON.stringify(user));
-    //             }
+                if (res.user) {
+                    let user = res.user;
+                    user.authdata = res.token;
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
 
-    //             return res.user;
-    //         }));
-    // }
+                return res.user;
+            }));
+    }
 
     logout() {
         

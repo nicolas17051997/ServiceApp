@@ -1,11 +1,17 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
 import { first } from 'rxjs/operators';
 
-import { AuthenticationService, AlertService } from '../services';
-import {RegistrationService} from '../services/register/registration.service';
+import {UserService} from '../services/user.service';
+import {AuthenticationService} from '../services/authentication.service';
+import {  AlertService } from '../services/alert.service';
+import { User } from '../models/User';
+import { Role} from '../models/role';
 
+
+ 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
@@ -13,48 +19,88 @@ export class RegisterComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     error = '';
+    uname: string;
+    usurname: string;
+    uemail: string;
+    upassword:string;
+    urole: Role.User;
 
     constructor(
         public formBuilder: FormBuilder,
         public route: ActivatedRoute,
         public router: Router,
-        //public authenticationService: AuthenticationService,
-        public register : RegistrationService,
-        public alertService: AlertService
+        public authenticationService: AuthenticationService,
+        public register : UserService,
+        public alertService: AlertService,
+        
     ) { 
-        // if (this.authenticationService.currentUserValue) { 
-        //     this.router.navigate(['/']);
-        // }
+        if (this.authenticationService.currentUserValue) { 
+            this.router.navigate(['/login']);
+        }
+        this.uname = "userName";
+        this.usurname = "userSurname";
+        this.uemail = "userEmail";
+        this.upassword = "userPassword";
     }
+    matcher = new MyErrorStateMatcher();
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
-            userName: ['', Validators.required, Validators.maxLength(15)],
-            lastName: ['', Validators.required, Validators.maxLength(15)],
-            userEmail: ['', Validators.required],
-            password: ['', Validators.required, Validators.minLength(6)],
-            password1: ['', Validators.required, Validators.minLength(6)],        
+            userName   : ['', Validators.required, Validators.maxLength(15)],
+            userSurname: ['', Validators.required, Validators.maxLength(15)],
+            userEmail  : ['', Validators.required],
+            userPassword: ['', Validators.required, Validators.minLength(3)],
+           // userPassword1: ['', Validators.required, Validators.minLength(6)],    
+                
         });
 
         
     }
-
+    save() {
+        if (!this.registerForm.valid) {
+          return;
+        }
+    
+        let newuser: User = {
+          
+          userName: this.registerForm.get(this.uname).value,
+          userSurname: this.registerForm.get(this.usurname).value,
+          userEmail: this.registerForm.get(this.uemail).value,
+          userPassword: this.registerForm.get(this.upassword).value,
+          //role: this.urole
+        };
+          
+    this.register.register(newuser)
+    .pipe(first())
+    .subscribe((data)=>{
+        this.router.navigate(['/login']);
+    });
+          console.log(newuser);  
+        }
+    
     get f() { return this.registerForm.controls; }
 
     onSubmit() {
         this.submitted = true;
-
-        // stop here if form is invalid = tru
+        
+        
         if (this.registerForm.invalid) {
             return;
         }
-
+        let newuser: User = {
+          userName: this.registerForm.get(this.uname).value,
+          userSurname: this.registerForm.get(this.usurname).value,
+          userEmail: this.registerForm.get(this.uemail).value,
+          userPassword: this.registerForm.get(this.upassword).value,
+          //role: this.urole
+        };
+        console.log(newuser);
         this.loading = true;
-        this.register.registerNewUser(this.registerForm.value)
+        this.register.register(newuser)
         .pipe(first())
         .subscribe(
             data => {
                     this.alertService.success("Registration successful", true);
-                    //this.router.navigate(['/login']);
+                    this.router.navigate(['/login']);
             },
             error => {
                 this.alertService.error(error);
@@ -63,3 +109,9 @@ export class RegisterComponent implements OnInit {
        
     }
 }
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+      const isSubmitted = form && form.submitted;
+      return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    }
+  }

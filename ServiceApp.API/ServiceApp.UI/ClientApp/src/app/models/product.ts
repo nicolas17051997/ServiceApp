@@ -5,6 +5,5 @@ export class Product {
     name: string;
     price: number;
     amount: number;
-    dt: Date;
     status: boolean;
 }

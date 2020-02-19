@@ -1,3 +1,4 @@
+P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.csprojAssemblyReference.cache
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\angular.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\e2e\tsconfig.e2e.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\package-lock.json
@@ -12,11 +13,11 @@ P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ServiceApp.UI.deps.
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ServiceApp.UI.runtimeconfig.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ServiceApp.UI.runtimeconfig.dev.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ServiceApp.UI.dll
+P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ServiceApp.UI.pdb
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.RazorAssemblyInfo.cache
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.RazorAssemblyInfo.cs
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.AssemblyInfoInputs.cache
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.AssemblyInfo.cs
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.RazorTargetAssemblyInfo.cache
-P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ServiceApp.UI.pdb
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.dll
 P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.pdb

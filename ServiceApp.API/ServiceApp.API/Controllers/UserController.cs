@@ -17,9 +17,9 @@ using ServiceApp.BLL.DTO;
 
 namespace ServiceApp.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
-    [ApiController]
+    //[ApiController]
     public class UserController : ControllerBase
     {
         private IUserService _userService;
@@ -87,14 +87,20 @@ namespace ServiceApp.API.Controllers
             return tokenHandler.WriteToken(securityToken);
         }
         [AllowAnonymous]
-        [HttpPost("register")]
-        public IActionResult Register([FromBody]RegisterUserVeiwModel userDto)
+        //[HttpPost("register")]
+        [HttpPost]
+        [ActionName("register")]
+        public async Task<IActionResult> Register([FromBody]RegisterUserVeiwModel userDto)
         {
             // map dto to entity
+            if(userDto.UserName == "Nicholas")
+            {
+                throw new Exception("Hello");
+            }
             var user = _register.CreateUser(userDto);
 
             if (user == null)
-                return BadRequest(new { message = "You must enter all fields to complete the registration" });
+                return  BadRequest(new { message = "You must enter all fields to complete the registration" });
             return Ok();
         }
     }
