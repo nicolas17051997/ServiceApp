@@ -1,4 +1,3 @@
-P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.csprojAssemblyReference.cache
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\angular.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\e2e\tsconfig.e2e.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\package-lock.json

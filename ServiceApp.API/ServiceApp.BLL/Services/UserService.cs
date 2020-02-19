@@ -70,7 +70,7 @@ namespace ServiceApp.BLL.Services
             x.Password == password)
                 .Select(x => new UserViewModel
                 {
-                    IdEmp= x.RoleId,
+                    IdEmp= 1,
                     Id = x.UserId,
                     UserName = x.Name,
                     UserPassword = null
@@ -87,7 +87,7 @@ namespace ServiceApp.BLL.Services
             return await GetAll()
                 .Select(x => new UserViewModel
                 {
-                    IdEmp = x.RoleId,
+                    IdEmp = 1,
                     Id = x.UserId,
                     UserName = x.Name,
                     UserPassword = null

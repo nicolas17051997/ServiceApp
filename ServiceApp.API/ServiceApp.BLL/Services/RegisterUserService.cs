@@ -17,21 +17,7 @@ namespace ServiceApp.BLL.Services
         }
         public async Task<Users> CreateUser(RegisterUserVeiwModel model)
         {
-            if (string.IsNullOrWhiteSpace(model.UserPassword)) {
-                throw new ApplicationException("Password is required");
-            }
-            if (string.IsNullOrWhiteSpace(model.UserEmail))
-            {
-                throw new ApplicationException("Email is required");
-            }
-            if(string.IsNullOrWhiteSpace(model.UserName))
-            {
-                throw new ApplicationException("Name is required");
-            }
-            if (string.IsNullOrWhiteSpace(model.UserSurname))
-            {
-                throw new ApplicationException("Surname is required");
-            }
+            var role = new Roles { RoleName = "User" };
             using (_repository.BeginTransaction())
             {
                 try
@@ -42,7 +28,8 @@ namespace ServiceApp.BLL.Services
                         SurName = model.UserSurname,
                         Password = model.UserPassword,
                         UserEmail = model.UserEmail,
-                        UserRole = 2,
+                        Roles = role
+                        
                     };
                     var data = await Create( user);
 

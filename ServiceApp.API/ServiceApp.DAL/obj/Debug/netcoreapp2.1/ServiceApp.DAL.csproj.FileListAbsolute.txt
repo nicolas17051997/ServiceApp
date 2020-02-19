@@ -16,4 +16,3 @@ P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.Ass
 P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.AssemblyInfo.cs
 P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.dll
 P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.pdb
-P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.csprojAssemblyReference.cache
