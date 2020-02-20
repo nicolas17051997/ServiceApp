@@ -1,0 +1,47 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form" [formGroup]="registerForm" (ngSubmit)="save()">
+
+            <mat-card-content >
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Username"formControlName = "userName" type="text">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Surname"formControlName = "userSurname" type="text">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" formControlName = "userEmail" type="email">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password" formControlName = "userPassword" type="password">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Choose a role...</mat-label>
+                    <mat-select [(value)]="selectedRole">
+                        <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <mat-form-field class="example-full-width">
+                    <mat-label>choose a user role</mat-label>
+                    <mat-select [(ngModel)]="selectedRole" name="role">
+                      <mat-option *ngFor="let role of Roles" [value]="role">
+                        {{role}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+
+            </mat-card-content>
+
+            <button type="submit" mat-stroked-button color="accent" class="btn-block" >Register</button>
+
+        </form>
+    </mat-card>
+</div>

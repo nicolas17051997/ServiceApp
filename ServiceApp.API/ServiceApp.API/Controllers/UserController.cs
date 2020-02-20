@@ -1,39 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using ServiceApp.BLL.DTO;
+using ServiceApp.BLL.Interfaces;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.Tokens;
-
-
-using ServiceApp.BLL.Services;
-using ServiceApp.BLL.Interfaces;
-using ServiceApp.BLL.DTO;
+using System.Threading.Tasks;
 
 namespace ServiceApp.API.Controllers
 {
-    //[Authorize]
-    [Route("api/[controller]")]
-    //[ApiController]
-    public class UserController : ControllerBase
+    [Authorize]
+    
+    [ApiController]
+    public class UserController : BaseController
     {
         private IUserService _userService;
-        private IUserRegisterService _register;
         private readonly IConfiguration _configuration;
 
-        public UserController(IUserService userServisce, IConfiguration configuration,
-            IUserRegisterService registerService )
+        public UserController(IUserService userService, IConfiguration configuration)
         {
-            _userService = userServisce;
+            _userService = userService;
             _configuration = configuration;
-            _register = registerService;
         }
-
+        [HttpPost]
+        [ActionName("register")]
+        public async Task<IActionResult> RegisterUser([FromBody] RegisterUserVeiwModel registerModel)
+        {
+            if (registerModel != null)
+            {
+                var user = await _userService.Register(registerModel);
+            }
+            else
+            {
+                return BadRequest(new { message = "You must enter all fields to complete the registration" });
+            }
+            
+            return Ok();
+        }
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public async Task<IActionResult> Authenticate([FromBody]UserViewModel userParam)
@@ -43,27 +49,16 @@ namespace ServiceApp.API.Controllers
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
 
-            return Ok(new UserTokenModel { User = user, Token = GetToken(user) });
+            return Success(new UserTokenModel { User = user, Token = GetToken(user) });
         }
+
 
         [AllowAnonymous]
-        [HttpGet("authenticateByToken")]
-        public async Task<IActionResult> AuthenticateByToken([FromHeader] byte[] token)
-        {
-            var user = await _userService.AuthenticateByToken(token);
-
-            if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
-
-            return Ok(new UserTokenModel { User = user, Token = GetToken(user) });
-        }
-
-        [Authorize]
-        [HttpGet]
+        [HttpGet("users")]
         public async Task<IActionResult> AllUsers()
         {
             var users = await _userService.GetAllUsers();
-            return Ok(users);
+            return Success(users);
         }
         private string GetToken(UserViewModel user)
         {
@@ -86,24 +81,8 @@ namespace ServiceApp.API.Controllers
 
             return tokenHandler.WriteToken(securityToken);
         }
-        [AllowAnonymous]
-        //[HttpPost("register")]
-        [HttpPost]
-        [ActionName("register")]
-        public async Task<IActionResult> Register([FromBody]RegisterUserVeiwModel userDto)
-        {
-            // map dto to entity
-            if(userDto.UserName == "Nicholas")
-            {
-                throw new Exception("Hello");
-            }
-            var user = _register.CreateUser(userDto);
-
-            if (user == null)
-                return  BadRequest(new { message = "You must enter all fields to complete the registration" });
-            return Ok();
-        }
     }
+
     public class UserTokenModel
     {
         public string Token { get; set; }

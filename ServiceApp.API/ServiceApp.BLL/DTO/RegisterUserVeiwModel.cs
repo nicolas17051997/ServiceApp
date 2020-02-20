@@ -11,5 +11,6 @@ namespace ServiceApp.BLL.DTO
         public string UserSurname { get; set; }
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
+        public string Role { get; set; }
     }
 }

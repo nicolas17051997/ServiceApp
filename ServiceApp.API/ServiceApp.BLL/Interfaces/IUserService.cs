@@ -1,15 +1,15 @@
-﻿using System;
+﻿using ServiceApp.BLL.DTO;
+using ServiceApp.DAL.Models;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using ServiceApp.BLL.DTO;
 
 namespace ServiceApp.BLL.Interfaces
 {
-   public interface IUserService
+    public interface IUserService : IBaseService<Users, int>
     {
         Task<UserViewModel> Authenticate(string username, string password);
-        Task<UserViewModel> AuthenticateByToken(byte[] token);
         Task<IEnumerable<UserViewModel>> GetAllUsers();
+        Task<RegisterUserVeiwModel> Register(RegisterUserVeiwModel model);
+
     }
 }

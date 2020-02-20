@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ServiceApp.DAL.Models
 {
-   public class Products
+    public class Products
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }

@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ViewProductComponent } from './components/view-product/view-product.component';
+import { ProductAddEditComponent } from './components/product-add-edit/product-add-edit.component';
 
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import { ProductAddEditComponent } from './product-add-edit/product-add-edit.component';
-import { ViewPoductsComponent } from './view-poducts/view-poducts.component';
+
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'view-products', component: ViewPoductsComponent},
-  {path: 'product-add-edit', component: ProductAddEditComponent},
-  { path: '**', redirectTo: '' }
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'login', component: LogInComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'view-product', component: ViewProductComponent },
+  { path: 'product-add-edit', component: ProductAddEditComponent }
+ 
 ];
 
 @NgModule({
