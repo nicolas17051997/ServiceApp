@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 
 import { AuthenticationService } from './services/authentication.service';
-import { User } from './models/user';
+//import { User } from './models/user';
+import {UserAuthorize} from './models/user-authorize';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { User } from './models/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentUser: User;
+  currentUser: UserAuthorize;
   title = 'ClientApp';
 
   constructor(private router: Router,

@@ -4,7 +4,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import {environment} from '../../environments/environment';
-import { User } from '../models/User';
+//import { User } from '../models/User';
+import { UserAuthorize } from '../models/user-authorize';
 
 @Injectable({
   providedIn: 'root'
@@ -12,28 +13,29 @@ import { User } from '../models/User';
 export class AuthenticationService {
   public myAppUrl: string;
   public myApiUrl: string;
-  private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  private currentUserSubject: BehaviorSubject<UserAuthorize>;
+  public currentUser: Observable<UserAuthorize>;
 
   constructor(private http: HttpClient) {
 
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<UserAuthorize>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
         
         this.myAppUrl = environment.myAppUrl;
         this.myApiUrl = 'api/user/authenticate';
    }
-   public get currentUserValue(): User {
+   public get currentUserValue(): UserAuthorize {
     return this.currentUserSubject.value;
 }
-login(username: string, password: string) {
+login(user : UserAuthorize) {
 
-        
-  return this.http.post<any>(this.myAppUrl + this.myApiUrl, { username, password })
-      .pipe(map(user => {
+  return this.http.post<any>(this.myAppUrl + this.myApiUrl, user)
+      .pipe(map(result => {
           
-          if (user && user.token) {
-              
+          if ( result.user) {
+              let user = result.user;
+              user.authvalue = result.token;
+              //console.log(user.token);
               localStorage.setItem('currentUser', JSON.stringify(user));
               this.currentUserSubject.next(user);
           }

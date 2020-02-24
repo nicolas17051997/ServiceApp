@@ -1,7 +1,10 @@
 export class Product {
-    id?: number;
-    name: string;
-    price: number;
-    amount: number;
-    status: boolean;
+    constructor(
+   public id?: number,
+    public name?: string,
+   public price?: number,
+   public amount?: number,
+  public  status?: boolean){
+
+    }
 }

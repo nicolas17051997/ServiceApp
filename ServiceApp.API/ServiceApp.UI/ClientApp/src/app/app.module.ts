@@ -23,9 +23,8 @@ import { ErrorInterceptor } from './helper/error.interceptor';
 /* Components */
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ProductAddEditComponent } from './components/product-add-edit/product-add-edit.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
-//import { ProductAddEditComponent } from './product-add-edit/product-add-edit.component';
+import { ProductAddEditComponent } from './components/product-add-edit/product-add-edit.component';
 
 
 @NgModule({
@@ -46,6 +45,10 @@ import { ViewProductComponent } from './components/view-product/view-product.com
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule
+  ],
+  entryComponents:[
+    ProductAddEditComponent,
+    ViewProductComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

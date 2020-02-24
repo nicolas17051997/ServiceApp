@@ -1,1 +1,28 @@
-<p>product-add-edit works!</p>
+<h1 mat-dialog-title>{{data}}</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Product Name" type="text" formControlName="pName"  required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Product Price" type="number" formControlName="pPrice" required >
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Product amount" type="number" formControlName="pAmount" required>
+      </mat-form-field>
+
+    <mat-form-field>
+      <mat-select matInput placeholder="Product status" [value]="getStatus" required >
+        <mat-option *ngFor="let stat of Statuses" [value]="stat">
+          {{ stat }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary">Save</button>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Cancel</button>
+</div>

@@ -27,12 +27,4 @@ register(user: User) {
     return this.http.post(`${this.myAppUrl + this.myApiUrl}/register`, user);
 }
 
-update(user: User) {
-    return this.http.put(`${this.myAppUrl + this.myApiUrl}/${user.id}`, user);
-}
-
-delete(id: number) {
-    return this.http.delete(`${this.myAppUrl + this.myApiUrl}/${id}`);
-  }
-
 }

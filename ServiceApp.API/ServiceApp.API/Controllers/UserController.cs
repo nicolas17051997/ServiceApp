@@ -5,15 +5,16 @@ using Microsoft.IdentityModel.Tokens;
 using ServiceApp.BLL.DTO;
 using ServiceApp.BLL.Interfaces;
 using System;
+using System.Net.Http;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ServiceApp.API.Controllers
 {
-    [Authorize]
-    
+    [Authorize]    
     [ApiController]
     public class UserController : BaseController
     {
@@ -25,20 +26,33 @@ namespace ServiceApp.API.Controllers
             _userService = userService;
             _configuration = configuration;
         }
-        [HttpPost]
-        [ActionName("register")]
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        //[ActionName]
         public async Task<IActionResult> RegisterUser([FromBody] RegisterUserVeiwModel registerModel)
         {
+            if (registerModel == null)
+            { return BadRequest("Invalid client request"); }
+            try { }
+            catch (HttpRequestException)
+            { return BadRequest("Cannot connect to the IoT server."); }
+            catch (Exception)
+            {
+                return BadRequest("Cannot register");
+            }
             if (registerModel != null)
             {
-                var user = await _userService.Register(registerModel);
+                var newUser = await _userService.Register(registerModel);
+                if (newUser != null)
+                    return Success(new UserTokenModel { User = newUser, Token = GetToken(newUser) });
             }
-            else
-            {
-                return BadRequest(new { message = "You must enter all fields to complete the registration" });
-            }
+            //else
+            //{
+            return BadRequest(new { message = "You must enter all fields to complete the registration" });
+            //}
             
-            return Ok();
+                
         }
         [AllowAnonymous]
         [HttpPost("authenticate")]
@@ -48,8 +62,9 @@ namespace ServiceApp.API.Controllers
 
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
-
+            //user.UserPassword = GetToken(user);
             return Success(new UserTokenModel { User = user, Token = GetToken(user) });
+            
         }
 
 

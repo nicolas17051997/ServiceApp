@@ -15,13 +15,17 @@ namespace ServiceApp.BLL.Services
     public class UserService : BaseService<Users, int>, IUserService
     {
         private readonly IRoleService _roleService;
+        private readonly IUserRoleService _userRoleService;
+
 
         public UserService(
             IRepository<Users, int> repository,
-                       IRoleService roleService
+                       IRoleService roleService,
+                       IUserRoleService uroleService
             ) : base(repository)
         {
             _roleService = roleService;
+            _userRoleService = uroleService;
         }
         public async Task<UserViewModel> Authenticate(string username, string password)
         {
@@ -71,30 +75,43 @@ namespace ServiceApp.BLL.Services
                 }).ToListAsync();
         }
 
-        public async Task<RegisterUserVeiwModel> Register(RegisterUserVeiwModel model)
+        public async Task<UserViewModel> Register(RegisterUserVeiwModel model)
         {
             var role = _roleService.GetAll(x => x.RoleName.Equals("User")).First();
-            var password = GetHashString(model.UserPassword);
+            var encodet = GetHashString(model.UserPassword);
             try
             {
                 var user = new Users
                 {
                     Name = model.UserName,
                     SurName = model.UserSurname,
-                    Password = model.UserPassword,
+                    Password = encodet,
                     UserEmail = model.UserEmail,
                 };
                 var data = await Create(user);
 
-                model.Id = data.UserId;
+                var userRole = new UsersRoles
+                {
+                    RolesId = role.RoleId,
+                    UsersId = data.UserId
+                };
 
-                return model;
+                await _userRoleService.Create(userRole);
+
+                var userView = new UserViewModel
+                {
+                    Id = data.UserId,
+                    UserName = data.Name,
+                    UserPassword = data.Password
+                };
+
+                return userView;
             }
             catch
             {
                 return null;
             }
         }
-        
+
     }
 }

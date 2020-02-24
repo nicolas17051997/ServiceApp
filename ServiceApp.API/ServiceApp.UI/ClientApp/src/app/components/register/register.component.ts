@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   Roles: any = ['Admin', 'User'];
   selectedRole: any;
+  error = '';
   
 
   constructor(public formBuilder: FormBuilder,
@@ -61,7 +62,12 @@ export class RegisterComponent implements OnInit {
         .pipe(first())
         .subscribe((data)=>{
         this.router.navigate(['/login']);
-    });
+    },
+    error => {
+      this.error = error;
+      console.log(error);
+  }
+    );
       console.log(newuser);  
   }
 

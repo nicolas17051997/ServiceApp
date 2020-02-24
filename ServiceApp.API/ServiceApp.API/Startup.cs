@@ -34,10 +34,18 @@ namespace ServiceApp.API
             services.AddDbContext<ServiceContext>(options => options.UseSqlServer(connection));
 
 
-            services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder =>
+            //services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder =>
+            //{
+            //    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            //}));
+            services.AddCors(options =>
             {
-                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-            }));
+                options.AddPolicy("CorsPolicy", builder => builder
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowCredentials()
+            .WithHeaders("Accept", "Content-Type", "Origin", "X-My-Header"));
+            });
             services.AddMvc();
 
             // var appSettingsSection = Configuration.GetSection("ApplicationSettings");
@@ -71,6 +79,7 @@ namespace ServiceApp.API
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IUserRoleService, UserRoleService>();
         }
 
 
@@ -85,7 +94,7 @@ namespace ServiceApp.API
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseCors("AllowAllOrigins");
+            app.UseCors("CorsPolicy");
 
 
             app.UseAuthentication();

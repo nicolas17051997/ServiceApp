@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using static ServiceApp.API.Utils.Constant;
 
 namespace ServiceApp.API.Controllers
 {
     [Route("api/[controller]")]
+   // [EnableCors(origins: "http://www.example.com", headers: "*", methods: "*")]
     public class BaseController : Controller
     {
         public BaseController()

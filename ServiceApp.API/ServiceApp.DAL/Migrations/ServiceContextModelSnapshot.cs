@@ -25,6 +25,8 @@ namespace ServiceApp.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Amount");
+
                     b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
