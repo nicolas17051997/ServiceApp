@@ -21,35 +21,41 @@ namespace ServiceApp.BLL.Services
 
         public async Task<CreateProductViewModel> CreateNewProduct(CreateProductViewModel productmodel)
         {
-            using (_repository.BeginTransaction())
+
+            try
             {
-                try
+                var product = _productServise.GetAll(x => x.Name.Equals(productmodel.Name)).First();
+                if (product == null)
                 {
-                    var product = GetAll(x => x.Name.ToLower().Equals(productmodel.Name) && x.Status == true).FirstOrDefault();
-                    if (product == null)
+                    var data = new Products
                     {
-                        var data = new Products
-                        {
-                            Name = productmodel.Name,
-                            Price = productmodel.Price,
-                            Status = productmodel.Status
-                        };
-                        var result = await Create(data);
-                        productmodel.Id = result.Id;
-                        _repository.CommitTransaction();
-                        return productmodel;
-                    }
-                    else
+                        Name = productmodel.Name,
+                        Price = productmodel.Price,
+                        Status = productmodel.Status,
+                        Amount = productmodel.Amount
+                    };
+                    var result = await _productServise.Create(data);
+
+                    var vewproduct = new CreateProductViewModel
                     {
-                        return null;
-                    }
+                        Id = result.Id,
+                        Name = result.Name,
+                        Price = result.Price,
+                        Amount = result.Amount,
+                        Status = result.Status
+                    };
+                    return vewproduct;
                 }
-                catch
+                else
                 {
-                    _repository.RollbackTransaction();
                     return null;
                 }
             }
+            catch
+            {
+                return null;
+            }
+
         }
 
         public async Task<bool> DeleteProduct(CreateProductViewModel model)
