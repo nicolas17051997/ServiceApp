@@ -8,3 +8,7 @@ export class Product {
 
     }
 }
+export class ProductResponse{
+  public statusCode: number;
+  public data: Product[];
+}

@@ -6,6 +6,11 @@ import {ProductsService} from '../../services/products.service';
 import {Product} from '../../models/product';
 import { first } from 'rxjs/operators';
 
+interface Status{
+  name: string;
+  value: boolean;
+}
+
 @Component({
   selector: 'app-product-add-edit',
   templateUrl: './product-add-edit.component.html',
@@ -13,12 +18,14 @@ import { first } from 'rxjs/operators';
 })
 export class ProductAddEditComponent implements OnInit {
   productForm: FormGroup;
-  Statuses: any = ['coming','expenditure'];
-  getStatus: any;
+  statuses: Status[] = [
+    { name:'coming', value: true},
+    {name:'expenditure', value:false}];
+  getStatus: boolean;
   public product: Product;
-  public statuses: boolean;
   error: '';
   private refreshEmiter: EventEmitter<Boolean>;
+  selectedCar: string;
   
   
 
@@ -35,7 +42,7 @@ export class ProductAddEditComponent implements OnInit {
       pName:['', [Validators.required, Validators.maxLength(15)]],
       pPrice:[0,[Validators.required, Validators.min(0), Validators.max(10000)]],
       pAmount:[1, [Validators.required, Validators.min(1), Validators.max(100)]],
-      pStatus:['', [Validators.required]]
+      car:['', [Validators.required]]
     });
 }
 
@@ -44,20 +51,20 @@ export class ProductAddEditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    let p: boolean;
-    if(this.getStatus === "coming"){
-        p = true;   
-    }
-    else{
-      p = false;
-    }
+    // let p: boolean;
+    // if(this.getStatus === "coming"){
+    //     p = true;   
+    // }
+    // else{
+    //   p = false;
+    // }
     this.product={
       name: this.productForm.get('pName').value,
       price: this.productForm.get('pPrice').value,
       amount: this.productForm.get('pAmount').value,
-      status: p
+      status: this.getStatus
     }
-    console.log(this.product);
+    console.log(this.getStatus);
     this.dataService.saveProduct(this.product)
     .pipe(first())
     .subscribe((data)=>{

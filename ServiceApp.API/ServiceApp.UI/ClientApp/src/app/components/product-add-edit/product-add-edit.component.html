@@ -13,15 +13,19 @@
         <input matInput placeholder="Product amount" type="number" formControlName="pAmount" required>
       </mat-form-field>
 
-    <mat-form-field>
-      <mat-select matInput placeholder="Product status" [value]="getStatus" required >
-        <mat-option *ngFor="let stat of Statuses" [value]="stat">
-          {{ stat }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      
+      <p> Selected status: {{getStatus}} </p>
     <button mat-raised-button type="submit" color="primary">Save</button>
   </form>
+  <mat-form-field class="selectedStatus">
+    <mat-label>Select status</mat-label>
+    <select matNativeControl [(ngModel)]="getStatus" name="stat">
+      <option value="" selected></option>
+      <option *ngFor="let stat of statuses" [value]="stat.value">
+        {{stat.name}}
+      </option>
+    </select>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Cancel</button>
