@@ -13,48 +13,61 @@ namespace ServiceApp.BLL.Services
 {
     public class ProductService : BaseService<Products, int>, IProductService
     {
-        private readonly IProductService _productServise;
-        public ProductService(IRepository<Products, int> repository, IProductService productservice) : base(repository)
+        //private readonly IUserService _userService;
+
+        public ProductService(IRepository<Products, int> repository
+            //IUserService userservice
+            ) : base(repository)
         {
-            _productServise = productservice;
+            
+            
+            
         }
 
         public async Task<CreateProductViewModel> CreateNewProduct(CreateProductViewModel productmodel)
         {
-
-            try
+            using (_repository.BeginTransaction())
             {
-                var product = _productServise.GetAll(x => x.Name.Equals(productmodel.Name)).First();
-                if (product == null)
+                try
                 {
-                    var data = new Products
+                    var product = GetAll(x => x.Name.ToLower().Equals(productmodel.Name.ToLower())).FirstOrDefault();
+                    if (product == null)
                     {
-                        Name = productmodel.Name,
-                        Price = productmodel.Price,
-                        Status = productmodel.Status,
-                        Amount = productmodel.Amount
-                    };
-                    var result = await _productServise.Create(data);
+                        var data = new Products
+                        {
+                            Name = productmodel.Name,
+                            Price = productmodel.Price,
+                            Status = productmodel.Status,
+                            Amount = productmodel.Amount
+                        };
+                        var result = await Create(data);
+                        productmodel.Id = result.Id;
 
-                    var vewproduct = new CreateProductViewModel
+                        var vewproduct = new CreateProductViewModel
+                        {
+                            Id = result.Id,
+                            Name = result.Name,
+                            Price = result.Price,
+                            Amount = result.Amount,
+                            Status = result.Status
+                        };
+
+                        _repository.CommitTransaction();
+
+                        return vewproduct;
+                    }
+                    else
                     {
-                        Id = result.Id,
-                        Name = result.Name,
-                        Price = result.Price,
-                        Amount = result.Amount,
-                        Status = result.Status
-                    };
-                    return vewproduct;
+                        _repository.RollbackTransaction();
+                        return null;
+                    }
                 }
-                else
+                catch
                 {
                     return null;
                 }
             }
-            catch
-            {
-                return null;
-            }
+            
 
         }
 
@@ -65,7 +78,7 @@ namespace ServiceApp.BLL.Services
                 var product = await Get(model.Id);
                 if (product != null)
                 {
-                    await _productServise.Delete(product);
+                    await _repository.Delete(product);
                 }
                 return true;
             }
@@ -92,7 +105,7 @@ namespace ServiceApp.BLL.Services
         {
             try
             {
-                var product = await _productServise.Get(model.Id);
+                var product = await Get(model.Id);
                 if (product != null)
                 {
                     product.Name = model.Name;
@@ -100,7 +113,7 @@ namespace ServiceApp.BLL.Services
                     product.Status = model.Status;
 
                 }
-                var newmodel = await _productServise.Update(product);
+                var newmodel = await _repository.Update(product);
                 return model;
             }
             catch

@@ -10,7 +10,7 @@ using ServiceApp.DAL.EFContext;
 namespace ServiceApp.DAL.Migrations
 {
     [DbContext(typeof(ServiceContext))]
-    [Migration("20200221095018_Init")]
+    [Migration("20200225133943_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

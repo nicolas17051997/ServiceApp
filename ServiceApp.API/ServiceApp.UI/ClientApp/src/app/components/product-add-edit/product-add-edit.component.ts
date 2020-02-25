@@ -44,17 +44,18 @@ export class ProductAddEditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if(this.getStatus === 'coming'){
-        this.getStatus = true;   
+    let p: boolean;
+    if(this.getStatus === "coming"){
+        p = true;   
     }
     else{
-      this.getStatus = false;
+      p = false;
     }
     this.product={
       name: this.productForm.get('pName').value,
       price: this.productForm.get('pPrice').value,
       amount: this.productForm.get('pAmount').value,
-      status: this.getStatus
+      status: p
     }
     console.log(this.product);
     this.dataService.saveProduct(this.product)

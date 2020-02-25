@@ -42,3 +42,14 @@ P:\ServieApp\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BL
 P:\ServieApp\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.csproj.CopyComplete
 P:\ServieApp\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.dll
 P:\ServieApp\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.pdb
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.BLL.deps.json
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.BLL.dll
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.BLL.pdb
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.dll
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\bin\Debug\netcoreapp2.1\ServiceApp.DAL.pdb
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.csprojAssemblyReference.cache
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.AssemblyInfoInputs.cache
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.AssemblyInfo.cs
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.csproj.CopyComplete
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.dll
+C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.BLL\obj\Debug\netcoreapp2.1\ServiceApp.BLL.pdb

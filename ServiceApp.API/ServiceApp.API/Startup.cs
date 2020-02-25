@@ -78,8 +78,8 @@ namespace ServiceApp.API
             services.AddScoped(typeof(IRepository<,>), typeof(BaseRepository<,>));
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
-            services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IUserRoleService, UserRoleService>();
+            services.AddTransient<IProductService, ProductService>();
         }
 
 

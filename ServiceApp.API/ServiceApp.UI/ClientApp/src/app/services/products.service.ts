@@ -22,8 +22,12 @@ export class ProductsService {
     this.myApiUrl = 'api/Product';
   }
   
-  getAllProducts() {
-    return this.http.get<Product[]>(`${this.myAppUrl + this.myApiUrl}/products`);
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.myAppUrl + this.myApiUrl}/products`)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    );
       
   }
 
