@@ -29,9 +29,9 @@ export class RegisterComponent implements OnInit {
     public authenticationService : AuthenticationService,
     public alertService: AlertService) {
 
-      if (this.authenticationService.currentUserValue) { 
-        this.router.navigate(['/login']);
-      }
+      // if (this.authenticationService.currentUserValue) { 
+      //   this.router.navigate(['/login']);
+      // }
      }
 
   ngOnInit() {

@@ -68,6 +68,7 @@ export class LogInComponent implements OnInit {
 
         } catch (err) {
           this.loginInvalid = true;
+          console.log(err);
         }
       } else {
         this.formSubmitAttempt = true;

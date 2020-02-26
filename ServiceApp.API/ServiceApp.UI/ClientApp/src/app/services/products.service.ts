@@ -23,6 +23,7 @@ export class ProductsService {
   }
   
   getAllProducts(): Observable<ProductResponse> {
+    debugger;
     return this.http.get<ProductResponse>(`${this.myAppUrl + this.myApiUrl}/products`)
     .pipe(
       retry(1),
@@ -40,11 +41,11 @@ export class ProductsService {
   }
 
   saveProduct(product: Product) {
-    return this.http.post(`${this.myAppUrl + this.myApiUrl}/createproduct`, product);
-      // .pipe(
-      //   retry(1),
-      //   catchError(this.errorHandler)
-      // );
+    return this.http.post(`${this.myAppUrl + this.myApiUrl}/createproduct`, product)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandler)
+      );
   }
 
   updateProduct(postId: number, blogPost): Observable<Product> {

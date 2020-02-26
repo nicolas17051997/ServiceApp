@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
+import { StatisticComponent } from './components/statistic/statistic.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
+
 //import { ProductAddEditComponent } from './components/product-add-edit/product-add-edit.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -14,11 +16,12 @@ import { AuthGuard } from './guard/auth.guard';
 const routes: Routes = [
  // { path: '', pathMatch: 'full', redirectTo: 'viewproduct' },
   
-{ path: 'products', component: ViewProductComponent },
-  // { path: 'products', component: ViewProductComponent, canActivate:[AuthGuard] },
+//{ path: 'products', component: ViewProductComponent },
+  { path: 'statistic', component: StatisticComponent, canActivate:[AuthGuard] },
+  { path: 'products', component: ViewProductComponent, canActivate:[AuthGuard] },
   { path: 'login', component: LogInComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '/products' }
+  { path: '**', redirectTo: '/statistic' }
  
 ];
 

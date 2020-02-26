@@ -12,7 +12,7 @@ namespace ServiceApp.API.Controllers
 {
     [Authorize]
     [ApiController]
-   // [EnableCors("CorsPolicy")]
+    [EnableCors("CorsPolicy")]
     public class ProductController : BaseController
     {
         private readonly IProductService _productService;

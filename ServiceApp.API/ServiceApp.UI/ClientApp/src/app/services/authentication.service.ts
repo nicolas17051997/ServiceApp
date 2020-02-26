@@ -11,6 +11,7 @@ import { UserAuthorize } from '../models/user-authorize';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  
   public myAppUrl: string;
   public myApiUrl: string;
   private currentUserSubject: BehaviorSubject<UserAuthorize>;
@@ -19,23 +20,20 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
 
     this.currentUserSubject = new BehaviorSubject<UserAuthorize>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
         
         this.myAppUrl = environment.myAppUrl;
         this.myApiUrl = 'api/user/authenticate';
    }
-   public get currentUserValue(): UserAuthorize {
-    return this.currentUserSubject.value;
-}
-login(user : UserAuthorize) {
 
+  
+login(user : UserAuthorize) {
+  
   return this.http.post<any>(this.myAppUrl + this.myApiUrl, user)
-      .pipe(map(result => {
-          
-          if ( result.user) {
-              let user = result.user;
-              user.authvalue = result.token;
-              //console.log(user.token);
+      .pipe(map(result => {    
+            
+          if ( result.data.user && result.data.token) { 
+              let user = result.data.user;
+              user.authvalue = result.data.token;
               localStorage.setItem('currentUser', JSON.stringify(user));
               this.currentUserSubject.next(user);
           }

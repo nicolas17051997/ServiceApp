@@ -14,6 +14,8 @@ P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\models\produ
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\models\product.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\products.service.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\products.service.js.map
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\statistic\statistic.component.js
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\statistic\statistic.component.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\product-add-edit\product-add-edit.component.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\product-add-edit\product-add-edit.component.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\view-product\view-product.component.js
@@ -54,6 +56,8 @@ P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\p
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\product-add-edit\product-add-edit.component.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\register\register.component.spec.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\register\register.component.spec.js.map
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\statistic\statistic.component.spec.js
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\statistic\statistic.component.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\view-product\view-product.component.spec.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\view-product\view-product.component.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\helper\api-result.js
@@ -62,8 +66,6 @@ P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\ale
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\alert.service.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\authentication.service.spec.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\authentication.service.spec.js.map
-P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\product-post.service.spec.js
-P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\product-post.service.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\user.service.spec.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\user.service.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\environments\environment.prod.js

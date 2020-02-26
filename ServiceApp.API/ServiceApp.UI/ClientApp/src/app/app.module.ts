@@ -25,6 +25,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { ProductAddEditComponent } from './components/product-add-edit/product-add-edit.component';
+import { StatisticComponent } from './components/statistic/statistic.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProductAddEditComponent } from './components/product-add-edit/product-a
     LogInComponent,
     RegisterComponent,
     ProductAddEditComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserModule,

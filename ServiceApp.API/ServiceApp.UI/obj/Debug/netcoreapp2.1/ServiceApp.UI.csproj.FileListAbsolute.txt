@@ -1,10 +1,6 @@
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\angular.json
-P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\e2e\tsconfig.e2e.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\package-lock.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\package.json
-P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\src\tsconfig.app.json
-P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\src\tsconfig.spec.json
-P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\src\tslint.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\tsconfig.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\tslint.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
@@ -91,4 +87,8 @@ C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.UI\obj
 C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.RazorTargetAssemblyInfo.cache
 C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.dll
 C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.pdb
-P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.csprojAssemblyReference.cache
+P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\e2e\tsconfig.json
+P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\proxy.conf.json
+P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\src\proxy.conf.json
+P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\tsconfig.app.json
+P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\tsconfig.spec.json

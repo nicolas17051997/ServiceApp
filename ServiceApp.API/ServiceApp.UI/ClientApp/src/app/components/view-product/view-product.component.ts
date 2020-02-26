@@ -17,9 +17,8 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./view-product.component.css']
 })
 export class ViewProductComponent implements OnInit {
-  elements: any = [];
-  products: Product[] = [];
 
+  products: Product[] = [];
   displayedColumns: string[] = ['id', 'name', 'price', 'amount'];
   dataSource: MatTableDataSource<Product>;
   isLoadingResults = true;
@@ -37,12 +36,7 @@ export class ViewProductComponent implements OnInit {
                 }
 
   ngOnInit(): void {
-    this.loadProducts();
-
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    
-
+    this.loadProducts();   
   }
 
   applyFilter(event: Event) {
@@ -61,6 +55,8 @@ export class ViewProductComponent implements OnInit {
         this.products = data.data;
         this.dataSource = new MatTableDataSource(this.products);
         console.log(this.products);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     });
     
     if(this.products === null) {
