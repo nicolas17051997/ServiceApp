@@ -50,7 +50,6 @@ export class ViewProductComponent implements OnInit {
 
   loadProducts() {
     this.productservice.getAllProducts()
-      .pipe()
       .subscribe((data) => {
         this.products = data.data;
         this.dataSource = new MatTableDataSource(this.products);

@@ -23,7 +23,7 @@ export class ProductsService {
   }
   
   getAllProducts(): Observable<ProductResponse> {
-    debugger;
+    
     return this.http.get<ProductResponse>(`${this.myAppUrl + this.myApiUrl}/products`)
     .pipe(
       retry(1),

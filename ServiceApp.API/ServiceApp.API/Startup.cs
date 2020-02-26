@@ -9,6 +9,8 @@ using ServiceApp.BLL.Interfaces;
 using ServiceApp.BLL.Services;
 using ServiceApp.DAL.EFContext;
 using ServiceApp.DAL.Repository;
+using System;
+using System.Globalization;
 
 
 namespace ServiceApp.API
@@ -38,14 +40,10 @@ namespace ServiceApp.API
             //{
             //    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             //}));
-            services.AddCors(options =>
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
             {
-                options.AddPolicy("CorsPolicy", builder => builder
-            .WithOrigins("http://localhost:4200")
-            .AllowAnyMethod()
-            .AllowCredentials()
-            .WithHeaders("Accept", "Content-Type", "Origin", "X-My-Header"));
-            });
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
             services.AddMvc();
 
             // var appSettingsSection = Configuration.GetSection("ApplicationSettings");
@@ -66,13 +64,14 @@ namespace ServiceApp.API
             .AddJwtBearer(JwtBearerOption =>
             {
                 JwtBearerOption.RequireHttpsMetadata = false;
-                JwtBearerOption.SaveToken = true;
+                JwtBearerOption.SaveToken = false;
                 JwtBearerOption.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
                     ValidateIssuer = false,
-                    ValidateAudience = false
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
                 };
             });
             services.AddScoped(typeof(IRepository<,>), typeof(BaseRepository<,>));

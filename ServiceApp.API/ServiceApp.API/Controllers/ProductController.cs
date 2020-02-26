@@ -20,7 +20,7 @@ namespace ServiceApp.API.Controllers
         {
             _productService = product;
         }
-        [AllowAnonymous]
+        
         [HttpPost("createproduct")]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductViewModel productmodel)
         {
@@ -38,7 +38,7 @@ namespace ServiceApp.API.Controllers
                 return Error(Utils.Constant.ResponseStatusCode.UniqRowDuplicate, "Can't create new product");
             }
         }
-        [AllowAnonymous]
+        [HttpGet]
         [HttpGet("products")]
         public async Task<IActionResult> GetAllProducts()
         {

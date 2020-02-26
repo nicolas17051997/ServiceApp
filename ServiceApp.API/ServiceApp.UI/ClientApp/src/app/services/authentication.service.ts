@@ -36,6 +36,7 @@ login(user : UserAuthorize) {
               user.authvalue = result.data.token;
               localStorage.setItem('currentUser', JSON.stringify(user));
               this.currentUserSubject.next(user);
+              console.log(user.authvalue);
           }
 
           return user;

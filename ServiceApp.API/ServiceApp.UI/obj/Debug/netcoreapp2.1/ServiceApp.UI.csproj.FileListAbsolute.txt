@@ -92,3 +92,4 @@ P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\proxy.con
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\src\proxy.conf.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\tsconfig.app.json
 P:\null\ServiceApp.API\ServiceApp.UI\bin\Debug\netcoreapp2.1\ClientApp\tsconfig.spec.json
+P:\null\ServiceApp.API\ServiceApp.UI\obj\Debug\netcoreapp2.1\ServiceApp.UI.csprojAssemblyReference.cache
