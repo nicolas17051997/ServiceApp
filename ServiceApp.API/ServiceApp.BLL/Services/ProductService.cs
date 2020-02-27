@@ -75,7 +75,8 @@ namespace ServiceApp.BLL.Services
         {
             try
             {
-                var product = await Get(model.Id);
+                var product = GetAll(x => x.Id == model.Id).FirstOrDefault();
+               // var product = await Get(model.Id);
                 if (product != null)
                 {
                     await _repository.Delete(product);
@@ -111,6 +112,7 @@ namespace ServiceApp.BLL.Services
                     product.Name = model.Name;
                     product.Price = model.Price;
                     product.Status = model.Status;
+                    product.Amount = model.Amount;
 
                 }
                 var newmodel = await _repository.Update(product);

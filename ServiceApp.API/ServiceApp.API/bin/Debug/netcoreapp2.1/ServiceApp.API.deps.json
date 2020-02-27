@@ -487,7 +487,8 @@
       },
       "ServiceApp.BLL/1.0.0": {
         "dependencies": {
-          "ServiceApp.DAL": "1.0.0"
+          "ServiceApp.DAL": "1.0.0",
+          "System.Threading.Tasks": "4.3.0"
         },
         "runtime": {
           "ServiceApp.BLL.dll": {}

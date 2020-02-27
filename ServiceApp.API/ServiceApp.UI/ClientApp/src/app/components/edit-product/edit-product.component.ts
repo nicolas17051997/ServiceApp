@@ -10,6 +10,7 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
+  
   form: FormGroup;
   model: Product;
   name: string;
@@ -36,16 +37,19 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
     
     this.form = this.fb.group({
-      name: [this.model.name, []]
+      name: this.model.name,
+      pPrice: this.model.price,
+      pAmount: this.model.amount
     });
 
   }
   save() {
-    this.model.id = 1;
+    this.model.id = this.model.id;
     this.model.name = this.form.get('name').value;
-    this.model.price = this.form.get('price').value;
-    this.model.amount = this.form.get('amount').value;
-    this.model.status = false;
+    this.model.price = this.form.get('pPrice').value;
+    this.model.amount = this.form.get('pAmount').value;
+    this.model.status = this.getStatus;
+    console.log(this.model);
 
     this.productservice.updateProduct(this.model).subscribe(()=>{this.refreshEmiter.emit(true)});
       

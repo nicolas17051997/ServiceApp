@@ -31,13 +31,14 @@ namespace ServiceApp.BLL.Services
         {
             var user = await GetAll(x => x.Name.Trim() == username.Trim() &&
             x.Password == GetHashString(password))
+                .Include(x=> x.UsersRoles).ThenInclude(x => x.)
                 .Select(x => new UserViewModel
                 {
                     Id = x.UserId,
                     UserName = x.Name,
                     UserPassword = x.Password
-
                 }).FirstOrDefaultAsync();
+            
             if (user == null)
             {
                 return null;

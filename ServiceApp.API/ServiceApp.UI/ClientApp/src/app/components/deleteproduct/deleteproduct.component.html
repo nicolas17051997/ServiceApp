@@ -1,12 +1,26 @@
-<h2 mat-dialog-title>Delete Product</h2>
+<h2 mat-dialog-title>Delete product</h2>
 
-<mat-dialog-content class="example-form">
-  <p>You really want to delete the selected items?</p>
-  <ul>
-    <!-- <li *ngFor="let element of deletedproduct">{{element}}</li> -->
-  </ul>
+<mat-dialog-content  class="example-form">
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </mat-dialog-content>
+
 <mat-dialog-actions>
-  <button class="mat-raised-button" (click)="close()">Cencel</button>
-  <button class="mat-raised-button mat-primary" (click)="delete()">Delete</button>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="delete()">delete</button>
 </mat-dialog-actions>

@@ -4620,7 +4620,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "ServiceApp.DAL": "1.0.0"
+          "ServiceApp.DAL": "1.0.0",
+          "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
           "bin/placeholder/ServiceApp.BLL.dll": {}

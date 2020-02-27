@@ -43,4 +43,3 @@ C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.DAL\ob
 C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.AssemblyInfo.cs
 C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.dll
 C:\Users\Turing_Machine\source\repos\appservice\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.pdb
-P:\null\ServiceApp.API\ServiceApp.DAL\obj\Debug\netcoreapp2.1\ServiceApp.DAL.csprojAssemblyReference.cache

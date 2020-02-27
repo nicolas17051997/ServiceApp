@@ -9,23 +9,23 @@
     
     <mat-form-field style="width: 300px;">
         <mat-label>Price</mat-label>
-        <input matInput style="font-size: 24px;" formControlName="pPrice">
+        <input type="number" matInput style="font-size: 24px;" formControlName="pPrice">
     </mat-form-field>
 
     <mat-form-field style="width: 300px;">
         <mat-label>Amount</mat-label>
-        <input matInput style="font-size: 24px;" formControlName="pPrice">
+        <input type="number" matInput style="font-size: 24px;" formControlName="pAmount">
     </mat-form-field>
     
     <mat-form-field class="selectedStatus">
-        <mat-label>Select status</mat-label>
-        <select matNativeControl [(ngModel)]="getStatus" name="stat">
-          <option value="" selected></option>
-          <option *ngFor="let stat of statuses" [value]="stat.value">
-            {{stat.name}}
-          </option>
-        </select>
-      </mat-form-field>
+      <mat-label>Select status</mat-label>
+      <select matNativeControl [(ngModel)]="getStatus" name="stat">
+        <option value="" selected ></option>
+        <option *ngFor="let stat of statuses" [value]="stat.value">
+          {{stat.name}}
+        </option>
+      </select>
+    </mat-form-field>
 
 </mat-dialog-content>
 

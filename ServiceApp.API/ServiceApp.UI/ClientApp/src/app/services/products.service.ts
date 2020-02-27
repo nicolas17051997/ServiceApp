@@ -50,7 +50,7 @@ export class ProductsService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.myAppUrl + this.myApiUrl}/`, product)
+    return this.http.put<Product>(`${this.myAppUrl + this.myApiUrl}/update`, product)
       .pipe(
         retry(1),
         catchError(this.errorHandler)

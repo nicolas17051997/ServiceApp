@@ -26,9 +26,7 @@ export class ViewProductComponent implements OnInit {
   dataSource: MatTableDataSource<Product>;
   
   private refreshParam: EventEmitter<Boolean> = new EventEmitter();
-  private refresh: EventEmitter<Boolean> = new EventEmitter();
-  private selection = new SelectionModel<Product>(true, );
-  private deleted = false;  
+  private refresh: EventEmitter<Boolean> = new EventEmitter(); 
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort; 
@@ -86,25 +84,24 @@ export class ViewProductComponent implements OnInit {
     
   }
 
-  editProduct() {
+  editProduct(element) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-     // data: this.selection.selected[0],
+      data: element,
       refresh: this.refresh
     };
     this.dialog.open(EditProductComponent, dialogConfig);
   }
 
-  deleteProduct() {
+  deleteProduct(element) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      data: this.selection.selected,
-      refresh: this.refresh,
-      deleted: this.deleted
+      data: element,      
+      refresh: this.refresh
     };
     this.dialog.open(DeleteproductComponent, dialogConfig);
   }

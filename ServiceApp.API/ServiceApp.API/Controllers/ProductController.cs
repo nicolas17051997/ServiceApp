@@ -47,7 +47,7 @@ namespace ServiceApp.API.Controllers
         }
 
         [HttpPost("deleteproduct")]
-        public async Task<IActionResult> DeleteProductPost([FromRoute] CreateProductViewModel model)
+        public async Task<IActionResult> DeleteProductPost([FromBody] CreateProductViewModel model)
         {
             var product = await _productService.DeleteProduct(model);
             if (product != null)

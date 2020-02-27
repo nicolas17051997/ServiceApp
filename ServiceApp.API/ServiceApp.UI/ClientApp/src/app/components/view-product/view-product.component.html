@@ -37,15 +37,16 @@
     <ng-container matColumnDef="delete">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <a (click)="deleteProduct()" type="button">
+        <a (click)="deleteProduct(element)" type="button">
           <mat-icon class="icon">delete</mat-icon>
         </a>
       </mat-cell>
     </ng-container>
+    
     <ng-container matColumnDef="edit">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <a (click)="editProduct()" type="button">
+        <a (click)="editProduct(element)" type="button">
           <mat-icon class="icon">edit</mat-icon>
         </a>
       </mat-cell>
