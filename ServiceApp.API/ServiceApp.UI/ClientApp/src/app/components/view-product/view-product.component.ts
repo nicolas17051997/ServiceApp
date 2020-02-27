@@ -1,8 +1,8 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild,EventEmitter, OnInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatDialog} from '@angular/material/dialog';
-import {HttpClient} from "@angular/common/http";
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog'
+import { SelectionModel } from '@angular/cdk/collections';
 import {MatSort} from '@angular/material/sort';
 import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
@@ -10,6 +10,9 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {Product} from '../../models/product';
 import {ProductsService} from '../../services/products.service';
 import { ProductAddEditComponent } from '../product-add-edit/product-add-edit.component';
+import { DeleteproductComponent } from '../deleteproduct/deleteproduct.component';
+import { EditProductComponent } from '../edit-product/edit-product.component';
+import { AuthenticationService } from '../../services/authentication.service';
 import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-view-product',
@@ -19,17 +22,20 @@ import { environment } from '../../../environments/environment';
 export class ViewProductComponent implements OnInit {
 
   products: Product[] = [];
-  displayedColumns: string[] = ['id', 'name', 'price', 'amount'];
+  displayedColumns: string[] = ['id', 'name', 'price', 'amount', 'delete', 'edit'];
   dataSource: MatTableDataSource<Product>;
-  isLoadingResults = true;
-  isRateLimitReached = false;
-  resultsLength = 0;
+  
+  private refreshParam: EventEmitter<Boolean> = new EventEmitter();
+  private refresh: EventEmitter<Boolean> = new EventEmitter();
+  private selection = new SelectionModel<Product>(true, );
+  private deleted = false;  
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort; 
 
   constructor( public dialog: MatDialog,
-               private productservice: ProductsService
+               private productservice: ProductsService,
+               public auth: AuthenticationService
                ) {
 
                 this.dataSource = new MatTableDataSource(this.products);
@@ -64,11 +70,9 @@ export class ViewProductComponent implements OnInit {
       this.products.forEach(function(task){
         console.log(task);
       });
-    }
-  
-    
-    
+    }    
   }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(ProductAddEditComponent, {
       width: '700px',
@@ -81,8 +85,29 @@ export class ViewProductComponent implements OnInit {
     });
     
   }
-  
 
+  editProduct() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+     // data: this.selection.selected[0],
+      refresh: this.refresh
+    };
+    this.dialog.open(EditProductComponent, dialogConfig);
+  }
+
+  deleteProduct() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      data: this.selection.selected,
+      refresh: this.refresh,
+      deleted: this.deleted
+    };
+    this.dialog.open(DeleteproductComponent, dialogConfig);
+  }
 }
 
 export interface Products{

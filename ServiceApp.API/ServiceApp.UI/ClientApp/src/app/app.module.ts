@@ -26,6 +26,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { ProductAddEditComponent } from './components/product-add-edit/product-add-edit.component';
 import { StatisticComponent } from './components/statistic/statistic.component';
+import { DeleteproductComponent } from './components/deleteproduct/deleteproduct.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { StatisticComponent } from './components/statistic/statistic.component';
     RegisterComponent,
     ProductAddEditComponent,
     ViewProductComponent,
-    StatisticComponent
+    StatisticComponent,
+    DeleteproductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,9 @@ import { StatisticComponent } from './components/statistic/statistic.component';
   ],
   entryComponents:[
     ProductAddEditComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    EditProductComponent,
+    DeleteproductComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

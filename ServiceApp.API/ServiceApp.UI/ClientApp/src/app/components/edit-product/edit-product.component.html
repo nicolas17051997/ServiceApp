@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{model.name? 'Редагування':'Додавання'}}</h2>
+
+<mat-dialog-content [formGroup]="form" class="example-form">
+
+    <mat-form-field style="width: 300px;">
+        <mat-label>Name</mat-label>
+        <input matInput style="font-size: 24px;" formControlName="name">
+    </mat-form-field>
+    
+    <mat-form-field style="width: 300px;">
+        <mat-label>Price</mat-label>
+        <input matInput style="font-size: 24px;" formControlName="pPrice">
+    </mat-form-field>
+
+    <mat-form-field style="width: 300px;">
+        <mat-label>Amount</mat-label>
+        <input matInput style="font-size: 24px;" formControlName="pPrice">
+    </mat-form-field>
+    
+    <mat-form-field class="selectedStatus">
+        <mat-label>Select status</mat-label>
+        <select matNativeControl [(ngModel)]="getStatus" name="stat">
+          <option value="" selected></option>
+          <option *ngFor="let stat of statuses" [value]="stat.value">
+            {{stat.name}}
+          </option>
+        </select>
+      </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save changes</button>
+</mat-dialog-actions>

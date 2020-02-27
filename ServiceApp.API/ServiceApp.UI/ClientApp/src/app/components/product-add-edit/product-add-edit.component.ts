@@ -51,13 +51,7 @@ export class ProductAddEditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // let p: boolean;
-    // if(this.getStatus === "coming"){
-    //     p = true;   
-    // }
-    // else{
-    //   p = false;
-    // }
+    
     this.product={
       name: this.productForm.get('pName').value,
       price: this.productForm.get('pPrice').value,

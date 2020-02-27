@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Delete Product</h2>
+
+<mat-dialog-content class="example-form">
+  <p>You really want to delete the selected items?</p>
+  <ul>
+    <!-- <li *ngFor="let element of deletedproduct">{{element}}</li> -->
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Cencel</button>
+  <button class="mat-raised-button mat-primary" (click)="delete()">Delete</button>
+</mat-dialog-actions>

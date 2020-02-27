@@ -5,6 +5,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Product, ProductResponse } from '../models/product';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -48,16 +49,16 @@ export class ProductsService {
       );
   }
 
-  updateProduct(postId: number, blogPost): Observable<Product> {
-    return this.http.put<Product>(this.myAppUrl + this.myApiUrl + postId, JSON.stringify(blogPost), this.httpOptions)
+  updateProduct(product: Product): Observable<Product> {
+    return this.http.put<Product>(`${this.myAppUrl + this.myApiUrl}/`, product)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
 
-  deleteCurrentProduct(postId: number): Observable<Product> {
-    return this.http.delete<Product>(this.myAppUrl + this.myApiUrl + postId)
+  deleteCurrentProduct(product: Product): Observable<boolean> {
+    return this.http.post<boolean>(`${this.myAppUrl + this.myApiUrl}/deleteproduct`, product)
       .pipe(
         retry(1),
         catchError(this.errorHandler)

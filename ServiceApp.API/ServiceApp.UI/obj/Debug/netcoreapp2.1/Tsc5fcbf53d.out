@@ -18,6 +18,10 @@ P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\s
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\statistic\statistic.component.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\product-add-edit\product-add-edit.component.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\product-add-edit\product-add-edit.component.js.map
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\deleteproduct\deleteproduct.component.js
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\deleteproduct\deleteproduct.component.js.map
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\edit-product\edit-product.component.js
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\edit-product\edit-product.component.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\view-product\view-product.component.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\view-product\view-product.component.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\services\alert.service.js
@@ -50,6 +54,10 @@ P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\test.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\test.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\app.component.spec.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\app.component.spec.js.map
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\deleteproduct\deleteproduct.component.spec.js
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\deleteproduct\deleteproduct.component.spec.js.map
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\edit-product\edit-product.component.spec.js
+P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\edit-product\edit-product.component.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\log-in\log-in.component.spec.js
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\log-in\log-in.component.spec.js.map
 P:\null\ServiceApp.API\ServiceApp.UI\ClientApp\dist\out-tsc\src\app\components\product-add-edit\product-add-edit.component.spec.js
